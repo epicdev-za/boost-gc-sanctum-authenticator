@@ -9,10 +9,10 @@ class GCSanctumAuthenticator extends BoostPlugin{
         const config = require("../../server.config");
         const gc_project_id = (config.sanctum.gc_project_id !== undefined) ? config.sanctum.gc_project_id : null;
         if(gc_project_id !== null){
-            let version = "projects/" + gc_project_id + "/secrets/sanctum-public/versions/latest";
+            let name = "projects/" + gc_project_id + "/secrets/sanctum-public/versions/latest";
 
             const [version] = await client.accessSecretVersion({
-                name: version
+                name: name
             });
 
             const key = version.payload.data.toString();
@@ -35,10 +35,10 @@ class GCSanctumAuthenticator extends BoostPlugin{
         const config = require("../../server.config");
         const gc_project_id = (config.sanctum.gc_project_id !== undefined) ? config.sanctum.gc_project_id : null;
         if(gc_project_id !== null) {
-            let version = "projects/" + gc_project_id + "/secrets/sanctum-private/versions/latest";
+            let name = "projects/" + gc_project_id + "/secrets/sanctum-private/versions/latest";
 
             const [version] = await client.accessSecretVersion({
-                name: version
+                name: name
             });
 
             const key = version.payload.data.toString();
