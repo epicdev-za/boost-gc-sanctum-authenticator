@@ -44,7 +44,7 @@ class GCSanctumAuthenticator extends BoostPlugin{
             const key = version.payload.data.toString();
 
             try {
-                return JSON.parse(crypto.privateEncrypt({
+                return JSON.parse(crypto.privateDecrypt({
                     key: key,
                     padding: crypto.constants.RSA_PKCS1_OAEP_PADDING,
                     oaepHash: "sha256"
