@@ -6,18 +6,22 @@ const client = new SecretManagerServiceClient();
 class GCSanctumAuthenticator extends BoostPlugin{
 
     async onSanctumEncrypt(data, project_key) {
+        console.log("Called 1");
         const config = require("../../server.config");
         const gc_project_id = (config.sanctum.gc_project_id !== undefined) ? config.sanctum.gc_project_id : null;
         if(gc_project_id !== null){
+            console.log("Called 2");
             let name = "projects/" + gc_project_id + "/secrets/sanctum-public/versions/latest";
 
             const [version] = await client.accessSecretVersion({
                 name: name
             });
+            console.log("Called 3");
 
             const key = version.payload.data.toString();
 
             try{
+                console.log("Called 4");
                 return crypto.publicEncrypt({
                     key: key,
                     padding: crypto.constants.RSA_PKCS1_OAEP_PADDING,
