@@ -3,7 +3,7 @@ This plugin is designed to add Google Cloud Secret Manager integration to allow 
 
 # Installation
 ```sh
-npm install --save github.com:epicdev-za/boost-gc-sanctum-authentictor
+npm install --save github:epicdev-za/boost-gc-sanctum-authentictor
 ```
 
 Register it in **server.config.js**
