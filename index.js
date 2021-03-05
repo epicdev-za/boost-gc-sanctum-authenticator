@@ -6,7 +6,7 @@ const client = new SecretManagerServiceClient();
 class GCSanctumAuthenticator extends BoostPlugin{
 
     async onSanctumEncryptSecret(data, project_key) {
-        const config = require("../../server.config");
+        const config = require("../../../server.config");
         const gc_project_id = (config.sanctum.gc_project_id !== undefined) ? config.sanctum.gc_project_id : null;
         if(gc_project_id !== null){
             let name = "projects/" + gc_project_id + "/secrets/sanctum-public/versions/latest";
