@@ -1,5 +1,5 @@
 {
-  "name": "boost-gc-sanctum-authenticator",
+  "name": "@epicdev/boost-gc-sanctum-authenticator",
   "version": "1.0.0",
   "description": "Google Cloud Sbased sanctum authenticator",
   "main": "index.js",
